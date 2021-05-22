@@ -19,4 +19,4 @@ var sendMessage = (body, from, to) => {
         })
 }
 
-exports.sendMessage = sendMessage;
+module.exports = { sendMessage };

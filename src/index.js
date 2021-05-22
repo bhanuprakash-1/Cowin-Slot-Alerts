@@ -1,16 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const smsService = require('./sms');
-const config = require('./config');
+
+const { sendMessage } = require('./sms');
+const { config } = require('./config');
 
 var states = {}
 var districtsOfStateId = {}
 
-const headers = {
-    "User-Agent": "Cowin-slot-alerts",
-    "Accept-Language": "en_US",
-}
+const headers = config.headers;
 
 app.get('/', function(req, res) {
 
@@ -93,7 +91,7 @@ const get_Slots = () => {
                 last_smsBody = smsBody;
             })
 
-            smsService.sendMessage(smsBody, "+12512782764", "+919515681995")
+            sendMessage(smsBody, "+12512782764", "+919515681995")
         })
         .catch((err) => {
             console.log(err);
