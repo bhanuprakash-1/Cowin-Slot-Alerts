@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 const smsService = require('./sms');
+const config = require('./config');
 
 var states = {}
 var districtsOfStateId = {}
@@ -92,7 +93,7 @@ const get_Slots = () => {
                 last_smsBody = smsBody;
             })
 
-            smsService.sendMessage(smsBody, "+12512782764", "+919441952259")
+            smsService.sendMessage(smsBody, "+12512782764", "+919515681995")
         })
         .catch((err) => {
             console.log(err);

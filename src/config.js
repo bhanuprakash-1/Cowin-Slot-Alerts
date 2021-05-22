@@ -1,6 +1,6 @@
 exports.config = {
     headers: {
-        "Accept-Language": "hi_IN",
-        "User-Agent": "Cowin-slot-alerts"
+        "User-Agent": "Cowin-slot-alerts",
+        "Accept-Language": "en_US",
     }
 };
