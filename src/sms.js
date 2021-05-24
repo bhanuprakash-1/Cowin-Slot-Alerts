@@ -11,7 +11,7 @@ var sendMessage = (body, from, to) => {
             to: to
         })
         .then((message) => {
-            console.log(message);
+            console.log("Debug: SMS Sent Successfully, with sid: "+message["sid"]);
         })
         .catch((error) => {
             console.log(error);
