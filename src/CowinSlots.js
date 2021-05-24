@@ -13,7 +13,7 @@ class CowinSlots{
         this.test = data;
     }
 
-    objectsAreEqual = (obj1,obj2)=>{
+    objectsAreEqual(obj1,obj2){
         const obj1Length = Object.keys(obj1).length;
         const obj2Length = Object.keys(obj2).length;
   
@@ -25,11 +25,11 @@ class CowinSlots{
         return false;
     }
 
-    arraysAreEqual = (a,b)=>{
+    arraysAreEqual(a,b){
         return ( a.length === b.length && a.every((v, i) => v === b[i]) );
     }
 
-    generateSMSBody = (centers)=>{
+    generateSMSBody(centers){
         
         let smsBody = "";
 
