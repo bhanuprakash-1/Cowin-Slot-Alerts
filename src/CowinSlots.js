@@ -141,10 +141,15 @@ class CowinSlots{
 
             if(smsToBeSent === true){
                 // write a function to prepare smsbody;
-                console.log("Debug: SMS is being sent");
-                let smsBody = thisObject.generateSMSBody(thisObject.slots);
-                globalEventObject.emit("smsBody",smsBody);
+                if(thisObject.slots == null){
+                    console.log("Debug: SMS not being sent, because no data available");
+                }
+                else{
+                    console.log("Debug: SMS is being sent");
+                    let smsBody = thisObject.generateSMSBody(thisObject.slots);
+                    globalEventObject.emit("smsBody",smsBody);
 
+                }
             }
             else{
                 console.log("Debug: SMS not to be sent");

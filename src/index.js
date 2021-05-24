@@ -10,6 +10,8 @@ const {CowinSlots } = require('./CowinSlots');
 const cowinSlots = new CowinSlots("Defined");
 const globalEventObject = new EventEmitter();
 
+const districtId = process.env.DISTRICT_ID || "581"; 
+
 globalEventObject.on("smsBody",(smsBody)=>{
 
     sendMessage(smsBody, "+12512782764", "+919515681995");
@@ -18,5 +20,5 @@ globalEventObject.on("smsBody",(smsBody)=>{
 app.listen(3000, function() {
     
     console.log('Example app listening on port 3000!');
-    setInterval(cowinSlots.getSlotsforDistrictID, 5000,'581',globalEventObject,cowinSlots);
+    setInterval(cowinSlots.getSlotsforDistrictID, 5000,districtId,globalEventObject,cowinSlots);
 });
