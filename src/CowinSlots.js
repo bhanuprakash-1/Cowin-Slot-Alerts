@@ -152,7 +152,8 @@ class CowinSlots{
                 }
             }
             else{
-                console.log("Debug: SMS not to be sent");
+                let time = current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
+                console.log("Debug: SMS not to be sent "+ time);
             }
         })
         .catch((error)=>{

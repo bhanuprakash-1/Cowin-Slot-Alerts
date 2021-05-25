@@ -21,5 +21,5 @@ globalEventObject.on("smsBody",(smsBody)=>{
 app.listen(port, function() {
     
     console.log('Example app listening on port '+port);
-    setInterval(cowinSlots.getSlotsforDistrictID, 5000,districtId,globalEventObject,cowinSlots);
+    setInterval(cowinSlots.getSlotsforDistrictID, 10000,districtId,globalEventObject,cowinSlots);
 });
