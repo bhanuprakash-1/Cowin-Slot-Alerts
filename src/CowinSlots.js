@@ -10,6 +10,7 @@ class CowinSlots{
 
     constructor(){
         this.slots = {};
+        this.errorCount = 0;
     }
 
     objectsAreEqual(obj1,obj2){
@@ -49,7 +50,7 @@ class CowinSlots{
         return smsBody;
     }
 
-    getSlotsforDistrictID(districtID,globalEventObject,cowinSlotsObject){
+    getSlotsforDistrictID(districtID,globalEventObject,cowinSlotsObject,globalAPIErrorFileLog){
 
         var thisObject = cowinSlotsObject;
         const current_datetime = new Date();
@@ -156,7 +157,13 @@ class CowinSlots{
             }
         })
         .catch((error)=>{
+            let time = current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
             console.log("An error occured in fetching data from Cowin API for district ID "+districtID+"  "+time);
+            
+            thisObject.errorCount++;
+
+            globalAPIErrorFileLog.emit("CowinAPIError",thisObject.errorCount,districtID,time);
+
         })
     }
 }
