@@ -2,7 +2,7 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID || "";
 const authToken = process.env.TWILIO_AUTH_TOKEN || " ";
 const client = require('twilio')(accountSid, authToken);
 
-var sendMessage = (body, from, to) => {
+var sendMessage = (body, from, to,districtID) => {
 
     client.messages
         .create({
@@ -11,7 +11,7 @@ var sendMessage = (body, from, to) => {
             to: to
         })
         .then((message) => {
-            console.log("Debug: SMS Sent Successfully, with sid: "+message["sid"]);
+            console.log("Debug: SMS Sent Successfully for district id "+ districtID + " , with sid: "+message["sid"]);
         })
         .catch((error) => {
             console.log(error);

@@ -8,9 +8,8 @@ const headers = config.headers;
 
 class CowinSlots{
 
-    constructor(data){
+    constructor(){
         this.slots = {};
-        this.test = data;
     }
 
     objectsAreEqual(obj1,obj2){
@@ -145,20 +144,19 @@ class CowinSlots{
                     console.log("Debug: SMS not being sent, because no data available");
                 }
                 else{
-                    console.log("Debug: SMS is being sent");
+                    console.log("Debug: SMS is being sent for district ID "+districtID);
                     let smsBody = thisObject.generateSMSBody(thisObject.slots);
-                    globalEventObject.emit("smsBody",smsBody);
+                    globalEventObject.emit("smsBody",smsBody,districtID);
 
                 }
             }
             else{
                 let time = current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
-                console.log("Debug: SMS not to be sent "+ time);
+                console.log("Debug: SMS not to be sent for district id "+districtID+"   "+ time);
             }
         })
         .catch((error)=>{
-            console.log(error);
-            console.log("An error occured in fetching data from Cowin API");
+            console.log("An error occured in fetching data from Cowin API for district ID "+districtID+"  "+time);
         })
     }
 }
