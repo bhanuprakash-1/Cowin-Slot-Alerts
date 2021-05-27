@@ -12,6 +12,7 @@ const globalEventObject = new EventEmitter();
 const globalAPIErrorFileLog = new EventEmitter();
 
 const port = process.env.PORT || 3000
+const timeInterval = process.env.TIMEINTERVAL || 10000
 
 globalEventObject.on("smsBody",(smsBody,districtID)=>{
 
@@ -41,7 +42,7 @@ setIntervalsForEachDistrictID = (districtIDs)=>{
 
         console.log("District Id: "+districtId);
 
-        setInterval(cowinSlotsForDistrictID[districtId].getSlotsforDistrictID, 10000, districtId, globalEventObject, cowinSlotsForDistrictID[districtId],globalAPIErrorFileLog);
+        setInterval(cowinSlotsForDistrictID[districtId].getSlotsforDistrictID, timeInterval, districtId, globalEventObject, cowinSlotsForDistrictID[districtId],globalAPIErrorFileLog);
     })
 
 }
