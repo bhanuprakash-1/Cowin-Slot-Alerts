@@ -1,2 +1,4 @@
 /node_modules
 /src/CowinAPIRejectLogs.*.txt
+output.txt
+output.*.txt
